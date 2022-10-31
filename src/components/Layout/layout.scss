@@ -1,0 +1,6 @@
+@use '../../lib/func' as *;
+
+.content {
+  padding: to-rem(90) 0 0 to-rem(115);
+  height: 100vh;
+}

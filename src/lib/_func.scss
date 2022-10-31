@@ -1,0 +1,19 @@
+@use "color" as *;
+@use "font" as *;
+
+// getcolor function
+@function get-color($color) {
+  @return map-get($colors-palette, $color);
+}
+
+// convert to rem function
+@function to-rem($value) {
+  @return $value / 16 * 1rem;
+}
+
+// get font size function
+@function get-fontsize($size) {
+  @return to-rem(map-get($font-sizes, $size))
+}
+
+

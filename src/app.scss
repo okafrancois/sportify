@@ -1,0 +1,5 @@
+@use 'lib/func' as *;
+
+.container {
+  padding: to-rem(90);
+}

@@ -1,0 +1,20 @@
+@use "../../lib/func" as *;
+
+.home-view {
+  .username {
+    color: get-color("red");
+  }
+
+  .greets {
+    margin-bottom: to-rem(75);
+
+    &__title {
+      font-size: get-fontsize("xlarge");
+      margin-bottom: to-rem(40);
+    }
+
+    &__subtitle {
+      font-size: get-fontsize("large");
+    }
+  }
+}
