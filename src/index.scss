@@ -1,4 +1,5 @@
 @use "lib/func" as *;
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,8 +9,6 @@
 :root {
   font-family: Roboto, Arial, sans-serif;
   font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
   color: get-color('black');
   background-color: get-color('white');
   font-synthesis: none;
@@ -24,3 +23,18 @@ a {
   text-decoration: inherit;
 }
 
+.color-red {
+  color: get-color('red');
+}
+
+.color-blue {
+  color: get-color('blue');
+}
+
+.color-yellow {
+  color: get-color('yellow');
+}
+
+.color-pink {
+  color: get-color('pink');
+}
