@@ -2,13 +2,19 @@ import React, {useEffect, useState} from 'react';
 import './home.scss';
 import DataCard from "../../components/DataCard/DataCard.jsx";
 import iconLib from "../../../public/lib.svg";
+import ActivityChart from "../../components/ActivityChart/ActivityChart.jsx";
 
-const Home = ({userData}) => {
+const Home = ({userData, activityData}) => {
     const [userDatas, setUserDatas] = useState(null);
+    const [userActivity, setUserActivity] = useState(null);
 
     useEffect(() => {
         if (userData) {
             setUserDatas(userData.data);
+        }
+
+        if (activityData) {
+            setUserActivity(activityData.data.sessions);
         }
     })
 
@@ -20,7 +26,7 @@ const Home = ({userData}) => {
             </div>
             <div className="datas">
                 <div className="datas__activity">
-                    <p>Activity</p>
+                    <ActivityChart userActivity={userActivity}/>
                 </div>
                 <div className="datas__duration">
                     <p>Duration</p>
@@ -28,8 +34,8 @@ const Home = ({userData}) => {
                 <div className="datas__stats">
                     <p>Stats</p>
                 </div>
-                <div className="datas__score">
-                    <p>Score</p>
+                <div className="datas__score round-bar">
+
                 </div>
                 <div className="datas__key key-data">
                     <div className="key-data__list">
