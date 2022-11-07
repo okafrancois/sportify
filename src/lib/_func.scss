@@ -8,7 +8,7 @@
 
 // convert to rem function
 @function to-rem($value) {
-  @return $value / 16 * 1rem;
+  @return calc($value / 16) * 1rem;
 }
 
 // get font size function

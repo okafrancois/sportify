@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   padding-top: to-rem(90);
+  padding-bottom: to-rem(180);
   width: to-rem(115);
   background: get-color('black');
   height: 100vh;
@@ -16,7 +17,7 @@
 
   &__copy {
     position: absolute;
-    bottom: to-rem(90);
+    bottom: to-rem(120);
     color: get-color('white');
     font-size: get-fontsize('small');
     overflow: hidden;

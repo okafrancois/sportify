@@ -59,12 +59,16 @@
     &__list {
       display: flex;
       flex-direction: column;
-      gap: to-rem(40) 0;
+      gap: to-rem(40) to-rem(40);
 
       @media all and (max-width: 1024px) {
         flex-direction: row;
         justify-content: space-between;
-        gap: 0 to-rem(10);
+        gap: to-rem(20) to-rem(20);
+        flex-wrap: wrap;
+         > * {
+            max-width: calc(50% - 10px);
+         }
       }
     }
   }

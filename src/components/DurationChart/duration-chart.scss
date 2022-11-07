@@ -1,0 +1,38 @@
+@use "../../lib/func" as *;
+
+.duration-chart {
+  background-color: get-color("red");
+  padding: 0;
+  border-radius: to-rem(5);
+  height: 100%;
+  max-height: to-rem(320);
+  width: 100%;
+  font-size: get-fontsize("base");
+  font-weight: 500;
+  position: relative;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: to-rem(30) to-rem(30);
+    font-size: get-fontsize("base");
+
+    h2 {
+      color: get-color("white");
+      font-size: inherit;
+      opacity: 0.5;
+      font-weight: inherit;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    opacity: 0.7;
+    height: 100%;
+    top: 0;
+    padding-top: 35%;
+    padding-bottom: to-rem(20);
+    position: absolute;
+  }
+}

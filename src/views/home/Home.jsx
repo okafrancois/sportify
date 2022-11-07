@@ -1,22 +1,24 @@
 import React, {useEffect, useState} from 'react';
 import './home.scss';
 import DataCard from "../../components/DataCard/DataCard.jsx";
-import iconLib from "../../../public/lib.svg";
 import ActivityChart from "../../components/ActivityChart/ActivityChart.jsx";
+import DurationChart from "../../components/DurationChart/DurationChart.jsx";
+import StatsChart from "../../components/StatsChart/StatsChart.jsx";
+import {formatPerformance, formatSessions} from "../../lib/func.js";
 
-const Home = ({userData, activityData}) => {
+const Home = ({userData, activityData, performanceData, sessionData}) => {
     const [userDatas, setUserDatas] = useState(null);
     const [userActivity, setUserActivity] = useState(null);
+    const [userPerformance, setUserPerformance] = useState(null);
+    const [userSession, setUserSession] = useState(null);
 
     useEffect(() => {
-        if (userData) {
-            setUserDatas(userData.data);
-        }
+        userData && setUserDatas(userData.data);
+        activityData && setUserActivity(activityData.data.sessions);
+        performanceData && setUserPerformance(formatPerformance(performanceData.data));
+        sessionData && setUserSession(formatSessions(sessionData.data.sessions));
 
-        if (activityData) {
-            setUserActivity(activityData.data.sessions);
-        }
-    })
+    }, [userData, activityData, performanceData]);
 
     return (
         <div className={"home-view container"}>
@@ -29,10 +31,10 @@ const Home = ({userData, activityData}) => {
                     <ActivityChart userActivity={userActivity}/>
                 </div>
                 <div className="datas__duration">
-                    <p>Duration</p>
+                    <DurationChart data={userSession}/>
                 </div>
                 <div className="datas__stats">
-                    <p>Stats</p>
+                    <StatsChart data={userPerformance}/>
                 </div>
                 <div className="datas__score round-bar">
 
