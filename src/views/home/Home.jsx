@@ -5,6 +5,7 @@ import ActivityChart from "../../components/ActivityChart/ActivityChart.jsx";
 import DurationChart from "../../components/DurationChart/DurationChart.jsx";
 import StatsChart from "../../components/StatsChart/StatsChart.jsx";
 import {formatPerformance, formatSessions} from "../../lib/func.js";
+import DailyScore from "../../components/DailyScore/DailyScore.jsx";
 
 const Home = ({userData, activityData, performanceData, sessionData}) => {
     const [userDatas, setUserDatas] = useState(null);
@@ -36,8 +37,8 @@ const Home = ({userData, activityData, performanceData, sessionData}) => {
                 <div className="datas__stats">
                     <StatsChart data={userPerformance}/>
                 </div>
-                <div className="datas__score round-bar">
-
+                <div className="datas__score">
+                    <DailyScore scoreValue={userDatas?.todayScore}/>
                 </div>
                 <div className="datas__key key-data">
                     <div className="key-data__list">

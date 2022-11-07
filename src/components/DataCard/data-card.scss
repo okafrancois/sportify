@@ -9,6 +9,7 @@
     padding: to-rem(30);
     background: get-color("light-gray");
     gap: to-rem(20);
+    border-radius: to-rem(5);
   }
 
   &__icon {
