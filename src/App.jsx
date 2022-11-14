@@ -1,7 +1,5 @@
 import './app.scss'
-import React, {useEffect} from 'react';
 import Layout from "./components/Layout/Layout.jsx";
-import {useFetch} from "./lib/func.js";
 import {Route,Routes} from "react-router-dom";
 import Home from "./views/home/Home.jsx";
 
