@@ -24,6 +24,15 @@
     grid-column-gap: to-rem(30);
     grid-row-gap: to-rem(30);
 
+    &__duration,
+    &__stats,
+    &__score  {
+      height: auto;
+      width: 100%;
+      aspect-ratio: 1/1;
+    }
+
+
     &__activity {
       grid-area: 1 / 1 / 5 / 4;
     }
@@ -44,7 +53,7 @@
       grid-area: 1 / 4 / 8 / 5;
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1130px) {
       grid-template-columns: repeat(6, 1fr);
 
       &__activity { grid-area: 1 / 1 / 5 / 7; }
@@ -60,8 +69,10 @@
       display: flex;
       flex-direction: column;
       gap: to-rem(40) to-rem(40);
+      height: 100%;
+      justify-content: space-between;
 
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1130px) {
         flex-direction: row;
         justify-content: space-between;
         gap: to-rem(20) to-rem(20);
