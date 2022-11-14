@@ -15,7 +15,7 @@
   &__container {
     position: relative;
     background: get-color("white");
-    width: to-rem(170);
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     max-height: 100%;
@@ -45,6 +45,7 @@
     top: 0;
     left: 0;
     height: 100%;
+    transform: scaleX(-1);
 
     svg {
         width: 100%;

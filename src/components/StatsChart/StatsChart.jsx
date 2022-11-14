@@ -6,7 +6,7 @@ const StatsChart = ({data}) => {
     return (
         <div className={"stats-chart"}>
             <div className="stats-chart__container">
-                <ResponsiveContainer width="100%" height={"100%"}>
+                <ResponsiveContainer width={"100%"} aspect={1}>
                     <RadarChart
                         outerRadius={'70%'}
                         margin={{top: 0, right: 0, bottom: 0, left: 0}}

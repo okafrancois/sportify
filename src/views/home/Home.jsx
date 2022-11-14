@@ -46,25 +46,29 @@ const Home = () => {
                 <p className={"greets__subtitle"}>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             </div>
             <div className="datas">
-                <div className="datas__activity">
-                    {activityLoading && <div>Chargement...</div>}
-                    {activityError && <div>{activityError}</div>}
-                    {userActivity && <ActivityChart userActivity={userActivity} />}
-                </div>
-                <div className="datas__duration">
-                    {sessionsAverageLoading && <div>Chargement...</div>}
-                    {sessionsAverageError && <div>{sessionsAverageError}</div>}
-                    {userSession && <DurationChart data={userSession}/>}
-                </div>
-                <div className="datas__stats">
-                    {performanceLoading && <div>Chargement...</div>}
-                    {performanceError && <div>{performanceError}</div>}
-                    {userPerformance && <StatsChart data={userPerformance}/>}
-                </div>
-                <div className="datas__score">
-                    {userDataLoading && <div>Chargement...</div>}
-                    {userDataError && <div>{userDataError}</div>}
-                    {userDetails && <DailyScore scoreValue={userDetails?.todayScore ?? 0}/>}
+                <div className="datas__charts">
+                    <div className="datas__activity">
+                        {activityLoading && <div>Chargement...</div>}
+                        {activityError && <div>{activityError}</div>}
+                        {userActivity && <ActivityChart userActivity={userActivity} />}
+                    </div>
+                    <div className="datas__group">
+                        <div className="datas__duration">
+                            {sessionsAverageLoading && <div>Chargement...</div>}
+                            {sessionsAverageError && <div>{sessionsAverageError}</div>}
+                            {userSession && <DurationChart data={userSession}/>}
+                        </div>
+                        <div className="datas__stats">
+                            {performanceLoading && <div>Chargement...</div>}
+                            {performanceError && <div>{performanceError}</div>}
+                            {userPerformance && <StatsChart data={userPerformance}/>}
+                        </div>
+                        <div className="datas__score">
+                            {userDataLoading && <div>Chargement...</div>}
+                            {userDataError && <div>{userDataError}</div>}
+                            {userDetails && <DailyScore scoreValue={userDetails?.todayScore ?? 0}/>}
+                        </div>
+                    </div>
                 </div>
                 <div className="datas__key key-data">
                     {userDataLoading && <div>Chargement...</div>}

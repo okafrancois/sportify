@@ -26,10 +26,8 @@ const DurationChart = ({data}) => {
                 </LineChart>
             </div>
             <div className="duration-chart__container">
-                <ResponsiveContainer>
-                    <AreaChart width={"100%"}
-                               height={"auto"}
-                               data={data}
+                <ResponsiveContainer width={"100%"} height={"100%"} aspect={1.8}>
+                    <AreaChart data={data}
                                margin={{ top: 0, right: 0, left: 0, bottom: 10 }}>
                         <defs>
                             <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">

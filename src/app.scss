@@ -1,7 +1,7 @@
 @use 'lib/func' as *;
 
 .container {
-  padding: to-rem(65) to-rem(90);
+  padding: to-rem(50) to-rem(80);
 
   @media all and (max-width: 1024px) {
     padding: to-rem(35);

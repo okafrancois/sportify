@@ -21,7 +21,7 @@ const ActivityChart = ({userActivity}) => {
                 </div>
             </div>
             <div className="activity-chart__container">
-                <ResponsiveContainer>
+                <ResponsiveContainer width="100%" height="100%">
                     <BarChart
                         data={userActivity}
                         barGap={8}
