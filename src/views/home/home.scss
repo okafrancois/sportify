@@ -29,7 +29,7 @@
     &__charts {
       display: flex;
       flex-direction: column;
-      width: calc(70% - to-rem(15));
+      width: calc(75% - to-rem(15));
       gap: to-rem(30);
     }
 
@@ -38,7 +38,7 @@
     }
 
     &__key {
-      width: calc(30% - to-rem(15));
+      width: calc(25% - to-rem(15));
     }
 
     &__group {
