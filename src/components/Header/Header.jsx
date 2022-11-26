@@ -2,10 +2,15 @@ import React from 'react';
 import './header.scss';
 import logo from '../../assets/img/logo.png';
 
+/**
+ * Page header component
+ *
+ * @return {JSX.Element}
+ */
 const Header = () => {
     return (
         <header className={"header"}>
-            <a href="#" className={"logo"}>
+            <a href="/" className={"logo"}>
                 <img className={"logo__image"} src={logo} alt="logo"/>
                 <span className={"logo__text"}>SportSee</span>
             </a>
@@ -20,5 +25,7 @@ const Header = () => {
         </header>
     );
 };
+
+Header.propTypes = {};
 
 export default Header;

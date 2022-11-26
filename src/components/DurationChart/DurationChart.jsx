@@ -1,7 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './duration-chart.scss'
 import {ResponsiveContainer, LineChart, Line, XAxis, CartesianGrid, YAxis, Tooltip, AreaChart, Area} from "recharts";
 
+/**
+ * A component that displays the average duration of the user's sessions in a line chart.
+ * @param {{data: {day: string, sessionLength: number}[]}} props - The datas
+ * @return {JSX.Element}
+ * @constructor
+ */
 const DurationChart = ({data}) => {
     return (
         <div className={"duration-chart"}>
@@ -71,5 +78,12 @@ const DurationChart = ({data}) => {
         </div>
     );
 };
+
+DurationChart.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        day: PropTypes.string.isRequired,
+        sessionLength: PropTypes.number.isRequired,
+    })).isRequired,
+}
 
 export default DurationChart;

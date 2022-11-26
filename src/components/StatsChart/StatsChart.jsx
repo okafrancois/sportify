@@ -1,7 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './stats-chart.scss'
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
+/**
+ * A component that displays a radar chart of the user's performance data.
+ * @param {{kind: string, value: number}[]} data - The data to display.
+ * @return {JSX.Element}
+ */
 const StatsChart = ({data}) => {
     return (
         <div className={"stats-chart"}>
@@ -26,5 +32,12 @@ const StatsChart = ({data}) => {
         </div>
     );
 };
+
+StatsChart.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        kind: PropTypes.string.isRequired,
+        value: PropTypes.number.isRequired
+    })).isRequired
+}
 
 export default StatsChart;
