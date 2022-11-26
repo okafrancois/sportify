@@ -6,7 +6,7 @@ import DurationChart from "../../components/DurationChart/DurationChart.jsx";
 import StatsChart from "../../components/StatsChart/StatsChart.jsx";
 import DailyScore from "../../components/DailyScore/DailyScore.jsx";
 import {useParams} from "react-router-dom";
-import {formatPerformance, formatSessions, useFetch} from "../../lib/func.js";
+import {formatPerformance, formatSessions, useFetch, useFetchMockData} from "../../lib/func.js";
 
 const Home = () => {
     const [userDetails, setUserDetails] = useState(null);
@@ -18,24 +18,23 @@ const Home = () => {
     const {data: userData, isPending: userDataLoading , error: userDataError} = useFetch(`${import.meta.env.VITE_API_URL}/user/${id}`);
     const {data: activityData, isPending: activityLoading, error: activityError} = useFetch(`${import.meta.env.VITE_API_URL}/user/${id}/activity`);
     const {data: performanceData, isPending: performanceLoading, error: performanceError} = useFetch(`${import.meta.env.VITE_API_URL}/user/${id}/performance`);
-    const {data: sessionsAverageData, isPending: sessionsAverageLoading, error: sessionsAverageError} = useFetch(`${import.meta.env.VITE_API_URL}/user/${id}/average-sessions`);
+    const {data: sessionsAverageData, isPending: sessionsAverageLoading, error: sessionsAverageError} = useFetchMockData('average-sessions', parseInt(id));
 
     useEffect(() => {
-
         if (userData) {
-            setUserDetails(userData.data);
+            setUserDetails(userData);
         }
         if (activityData) {
-            setUserActivity(activityData.data.sessions);
+            setUserActivity(activityData.sessions);
         }
         if (performanceData) {
             setUserPerformance(formatPerformance({
-                data: performanceData.data.data,
-                kind: performanceData.data.kind
+                data: performanceData.data,
+                kind: performanceData.kind
             }));
         }
         if (sessionsAverageData) {
-            setUserSession(formatSessions(sessionsAverageData.data.sessions));
+            setUserSession(formatSessions(sessionsAverageData.sessions));
         }
     }, [userData, activityData, performanceData, sessionsAverageData]);
 
@@ -66,7 +65,7 @@ const Home = () => {
                         <div className="datas__score">
                             {userDataLoading && <div>Chargement...</div>}
                             {userDataError && <div>{userDataError}</div>}
-                            {userDetails && <DailyScore scoreValue={userDetails?.todayScore ?? 0}/>}
+                            {userDetails && <DailyScore scoreValue={userDetails.todayScore ?? userDetails.score}/>}
                         </div>
                     </div>
                 </div>

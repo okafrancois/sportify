@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
     BarChart,
     Bar,
@@ -10,6 +11,12 @@ import {
 } from 'recharts';
 import './activity-chart.scss'
 
+/**
+ * A component that displays the activity data in a bar chart.
+ *
+ * @param {{calories: number, day: string, kilogram: number}[]} userActivity - The user activity data.
+ * @return {JSX.Element}
+ */
 const ActivityChart = ({userActivity}) => {
     return (
         <div className="activity-chart">
@@ -83,5 +90,13 @@ const ActivityChart = ({userActivity}) => {
         </div>
     );
 };
+
+ActivityChart.propTypes = {
+    userActivity: PropTypes.arrayOf(PropTypes.shape({
+        calories: PropTypes.number.isRequired,
+        day: PropTypes.string.isRequired,
+        kilogram: PropTypes.number.isRequired,
+    })).isRequired,
+}
 
 export default ActivityChart;

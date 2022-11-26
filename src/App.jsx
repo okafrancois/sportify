@@ -2,15 +2,14 @@ import './app.scss'
 import Layout from "./components/Layout/Layout.jsx";
 import {Route,Routes} from "react-router-dom";
 import Home from "./views/home/Home.jsx";
+import Login from "./views/login/Login.jsx";
 
 const App = () => {
     return (
-        <Layout>
-            <Routes>
-                <Route exact path="/:id" element={<Home />} />
-                <Route exact path="/" element={<Home />} />
-            </Routes>
-        </Layout>
+        <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route exact path="/:id" element={<Layout><Home /></Layout>} />
+        </Routes>
     );
 };
 

@@ -1,6 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './daily-score.scss';
 
+/**
+ * A component that displays the daily score percent of the user in a radial bar chart.
+ * @param {number} scoreValue - The score value
+ * @return {JSX.Element} - The component
+ */
 const DailyScore = ({scoreValue = 0}) => {
     return (
         <div className={"daily-score"}>
@@ -16,5 +22,9 @@ const DailyScore = ({scoreValue = 0}) => {
         </div>
     );
 };
+
+DailyScore.propTypes = {
+    scoreValue: PropTypes.number.isRequired,
+}
 
 export default DailyScore;

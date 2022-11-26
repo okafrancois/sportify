@@ -1,0 +1,35 @@
+@use "../../lib/func" as *;
+
+.login-view {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+    align-items: center;
+  overflow: hidden;
+  gap: to-rem(20);
+
+  &__logo {
+    width: 100px;
+    aspect-ratio: 1/1;
+    margin-bottom: to-rem(20);
+  }
+
+  &__buttons {
+    display: flex;
+    gap: to-rem(50);
+
+    & > * {
+      width: 100%;
+      margin-top: to-rem(20);
+      min-width: to-rem(100);
+      text-align: center;
+      background: get-color("red");
+      color: get-color("white");
+      display: inline-block;
+      padding: to-rem(10) to-rem(20);
+      border-radius: to-rem(5);
+    }
+  }
+}
